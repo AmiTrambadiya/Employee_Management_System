@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="{{url_for('adduser')}}" onsubmit ="return !! (verifyPassword() & checkUsername() & checkEmail() & checkconpw())" method="POST" class="">
+    <div class="container rounded bg-white mt-5 mb-5">
+    <div class="row profileuser ">
+        <div class="p-3 py-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h1 class="text-right">Add New User</h1>
+                <button class="btn btn-primary btn-block fa-lg gradient-custom-2 back-btn"><a class="nav-link active" aria-current="page" href="{{url_for('showdata')}}" onclick="return confirm('Are you sure you want to go back?');">Home</a></button>
+            </div>
+            <div class="addnewuser">
+                <input type="hidden" class="form-control" name="id" value="">
+                <input type="hidden" name="userid"  class="form-control" value="">
+                <div class="form-outline mb-4">
+                    <label class="form-label">Username :</label>
+                    <input type="text" name="username" id="chkusernm" class="form-control" value="" placeholder="Username" >
+                    <span id = "chusernm" class="error"></span>
+                </div>
+                <div class="form-outline mb-4">
+                    <label class="form-label">Email :</label>
+                    <input type="text" name="email" id="chkemail" class="form-control" value="" placeholder="Email" >
+                    <span id = "chemail" class="error"></span>
+                </div>
+                <div class="form-outline mb-4">
+                    <label class="form-label">Password :</label>
+                    <input type="password" id = "pswd" name="password"  class="form-control" value="" placeholder="Password" >
+                    <span id = "message" class="error"></span>
+                </div>
+                <div class="form-outline mb-4">
+                    <label class="form-label">Confirm Password :</label>
+                    <input type="password" name="confirm_pw" id="chkconpw" class="form-control" value="" placeholder="Confirm password" >
+                    <span id = "chconpw" class="error"></span>
+                </div>
+            </div>
+        </div>
+            {% if error %}
+        <p class="error">{{ error }}</p>
+            {% endif %}
+    <!-- {% if error %}-->
+    <!--  <p class="error">{{ emsg }}-->
+    <!--  {% endif %}-->
+                <div class="text-center pt-1 mb-5 pb-1">
+                    <button class="btn btn-primary btn-block fa-lg gradient-custom-2  back-btn" type="submit">Add user</button>
+                </div>
+
+    </div>
+    </div>
+ </form>
+{% endblock %}

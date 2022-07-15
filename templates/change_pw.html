@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="{{url_for('resetpw',user_id=account[1] or '')}}" onsubmit ="return !! (verifyPassword() & checkconpw())" method="POST" class="">
+    <div class="container rounded bg-white mt-5 mb-5">
+    <div class="row profileuser ">
+    <div class="p-3 py-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h1 class="text-right">Change Password</h1>
+            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 back-btn"><a class="nav-link active" aria-current="page" href="{{url_for('showdata')}}" onclick="return confirm('Are you sure you want to go back?');">Home</a></button>
+        </div>
+        <div class="addnewuser">
+            <input type="hidden" class="form-control" name="id" value="{{ account[0] or '' }}">
+            <input type="hidden" name="user_id"  class="form-control" value="{{ account[1] or '' }}">
+              <div class="form-outline mb-4">
+                <label class="form-label">Username :</label>
+                <input type="text" name="username"  placeholder="new password" class="form-control" value="{{ account[16] or '' }}" readonly>
+            </div>
+            <div class="form-outline mb-4">
+                <label class="form-label">New Password :</label>
+                <input type="password" name="newpassword" id = "pswd" placeholder="New password" class="form-control" value="" >
+                <span id = "message" class="error"></span>
+            </div>
+             <div class="form-outline mb-4">
+                 <label class="form-label">Confirm Password :</label>
+                 <input type="password" name="confirmpw" id="chkconpw" placeholder="Confirm password"  class="form-control" value="" >
+                <span id = "chconpw" class="error"></span>
+             </div>
+            {% if error %}
+            <p class="error">{{ error }}</p>
+            {% endif %}
+
+            <div class="text-center pt-1 mb-5 pb-1">
+                <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 back-btn"  type="submit" >Done</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</form>
+
+
+{% endblock %}

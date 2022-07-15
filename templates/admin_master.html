@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container rounded bg-white mt-5 mb-5">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100">
+            <div class="toast-container top-0  p-3">
+                <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                <strong class="me-auto">Hello  {{session['username']}}...</strong>
+                <small class="text-muted"></small>
+<!--                    <a href="" class="btn btn-primary gradient-custom-2 back-btn"><i class="fa-solid fa-square-xmark"></i></a>-->
+                <button type="button" class="btn-close " data-bs-dismiss="toast" aria-label="Close"></button>
+<!--                    <img src="static/img/close.png" class="login" data-bs-dismiss="toast" aria-label="Close">-->
+                </div>
+                <div class="toast-body">
+                   {{ message }}
+                </div>
+                </div>
+            </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="row ">
+        <div class="adminpanel">
+        <div class="p-3 py-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h1 class="text-right">Admin Panel</h1>
+                <button class="btn btn-primary btn-block fa-lg gradient-custom-2 back-btn"><a class="nav-link active" aria-current="page" href="{{url_for('logoutadmin')}}" onclick="return confirm('Do you want to exit ?');">Logout</a></button>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+
+        <table id='myTable' class="table  table-hover ">
+            <thead>
+        <tr>
+            <th>Username</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>DOB</th>
+            <th>Mobile Number</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Date of updation</th>
+            <th>Change Password</th>
+            <th>Edit</th>
+             <th>Delete</th>
+        </tr>
+        </thead>
+        {% for row in data %}
+        <tr>
+            <td>{{ row[16] or '' }}</td>
+            <td>{{ row[2] or '' }} {{ row[3] or '' }}</td>
+            <td>{{ row[15] or '' }}</td>
+            <td>{{ row[4] or '' }}</td>
+            <td>{{ row[5] or '' }}</td>
+             <td>{{ row[6] or '' }}</td>
+             <td>{{ row[7] or '' }}   {{ row[8] or '' }}   {{ row[10] or '' }}  {{ row[9] or '' }} </td>
+            <td>{{ row[11] or '' }}</td>
+            <td><a href="{{url_for('changepw', user_id= row[1] )}}" class="btn btn-primary gradient-custom-2  back-btn"> <i class="fa-solid fa-key"></i></a></td>
+            <td><a href="{{url_for('euser', user_id = row[1])}}" class="btn btn-primary gradient-custom-2  back-btn"><i class="fa-solid fa-pencil "></i></a></td>
+            <td><a href="{{url_for('delete', user_id= row[1] )}}" class="btn btn-primary gradient-custom-2  back-btn" onclick="return confirm('Want to delete?');"><i class="fa-solid fa-trash-can"></i></a></td>
+        </tr>
+
+        {% endfor %}
+        </table>
+
+
+
+<!--            <nav aria-label="Page navigation example">-->
+<!--  <ul class="pagination">-->
+<!--    <li class="page-item">-->
+<!--      <a class="page-link" href="#" aria-label="Previous">-->
+<!--        <span aria-hidden="true">&laquo;</span>-->
+<!--      </a>-->
+<!--    </li>-->
+<!--    <li class="page-item"><a class="page-link" href="#">1</a></li>-->
+<!--    <li class="page-item"><a class="page-link" href="#">2</a></li>-->
+<!--    <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+<!--    <li class="page-item">-->
+<!--      <a class="page-link" href="#" aria-label="Next">-->
+<!--        <span aria-hidden="true">&raquo;</span>-->
+<!--      </a>-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--</nav>-->
+        </div>
+
+        </div>
+        <a class="btn btn-primary add-user btn-block fa-lg gradient-custom-2 mb-3 back-btn" href="{{url_for('createuser')}}" role="button">Add New User</a>
+    </div>
+<script>
+$(document).ready(function ()
+{
+    $('#myTable').DataTable();
+})
+
+</script>
+{% endblock %}
