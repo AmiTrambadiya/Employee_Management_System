@@ -335,15 +335,28 @@ def display_image(filename):
 
 
 #
-# @app.route('/photo', methods=["GET", "POST"])
-# def photo():
-#     user_id = session['id']
+# @app.route('/photo/<int:user_id>')
+# def photo(user_id):
+#
 #     if session['userloggedin']:
 #         cur = conn.cursor()
 #         cur.execute(f"SELECT * FROM user_profile,user_login where user_login.id = '{user_id}' and user_profile.user_id = '{user_id}'")
 #         accountuser = cur.fetchone()
 #     return render_template("user_photo.html", accountuser = accountuser)
-
+#
+#
+# @app.route('/photosave', methods=["GET", "POST"])
+# def photosave():
+#     user_id = session['id']
+#     if session['userloggedin']:
+#         file = request.files['fimg']
+#         filename = secure_filename(file.filename)
+#         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+#         cur = conn.cursor()
+#         cur.execute(f"UPDATE user_profile set img='{filename}' WHERE user_id='{user_id}'")
+#         accountuser = cur.fetchone()
+#     return render_template("user_profile.html", accountuser=accountuser)
+#
 
 
 @app.route('/logoutadmin')
