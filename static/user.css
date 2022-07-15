@@ -1,0 +1,124 @@
+body {
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+.gradient-custom-2 {
+background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+.back-btn{
+border:none;
+}
+.backk-btn{
+padding:9%;
+}
+.done-btn{
+font-weight:bold;
+margin:19%;
+}
+.backk-btnn{
+padding:2.5%;
+}
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
+.text-right{
+padding-top:3%;
+color:#d8363a;
+}
+.labels{
+font-size: 1rem;
+font-weight: bold;
+}
+.details{
+padding-left:10%;
+}
+.logout{
+padding-top:10rem
+}
+.profileuser {
+    margin-top: 0;
+    margin-right: 0;
+    margin-left: 0;
+    padding-left:10%;
+    padding-right:10%;
+    padding-bottom:5%;
+}
+.adminpanel{
+ padding-left:6%;
+    padding-right:6%;
+}
+ .addnewuser {
+
+    width: 80%;
+    max-width: 80%;
+    padding-right: -10%;
+    padding-top: 5%;
+    padding-left: 20%;
+    margin-top: 0;
+}
+.upload .round{
+    position: absolute;
+    top: 47%;
+    left: 48.5%;
+
+
+    width: 4%;
+    line-height: 33px;
+    overflow: hidden;
+}
+
+.upload .round input[type='file']{
+    position: absolute;
+    transform: scale(2);
+    opacity: 0;
+}
+
+.error{
+color:#FF0000;
+}
+
+
+canvas {
+  height: 250px;
+  width:250px;
+  border-style: solid;
+  border-radius:50%;
+  border-width: 1px;
+  border-color: black;
+}
