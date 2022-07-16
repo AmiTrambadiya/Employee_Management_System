@@ -92,8 +92,8 @@
             <div class="form-outline mb-4">
                 <label class="form-label labels">Birth certificate :</label>
 
-                {% if account[13] != None %}
-                                <a href="{{ url_for('static', filename='files/' + account[13] or '') }}"><input type="text" class="form-control" value="{{account[13] or '' }}"readonly></a>
+                            {% if account[13] != None %}
+                                <a href="{{ url_for('static', filename='files/' + account[13] or '') }}" download><input type="text" class="form-control" value="{{account[13] or '' }}"readonly></a>
                             {% else %}
                                 <input type="text" class="form-control" value="No file choosen"readonly>
                             {% endif %}
@@ -104,7 +104,14 @@
             <div class="form-outline mb-4">
                 <label class="form-label labels">State :</label>
                 <select id="chkstate" name="state" class="form-control" value="{{account[9] or '' }}">
-            <option value="{{account[9] or '' }}">State</option>
+                    <option value="" selected>
+                    {% if account[9] != None %}
+                    {{account[9] or '' }}
+                    {% else %}
+                    State
+                    {% endif %}
+                    </option>
+            <option value="{{account[9] or '' }}">{{account[9] or '' }}</option>
             <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
             <option value="Andhra Pradesh">Andhra Pradesh</option>
             <option value="Arunachal Pradesh">Arunachal Pradesh</option>
