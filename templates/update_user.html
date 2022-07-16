@@ -22,63 +22,63 @@
                 <input type="hidden" name="id" class="form-control mb-3"  value="{{accountuser[0] or '' }}"></div>
                 <input type="hidden" name="userid" class="form-control mb-3" value="{{accountuser[1] or '' }}" ></div>
                 <div class="row ">
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-4" >
                         <label>First Name :</label>
                         <input type="text" name="fname" id = "chkfirstnm" class="form-control " placeholder="First name" value="{{accountuser[2]  or '' }}" >
                         <span id = "chfirstnm" class="error"></span>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-4">
                         <label>Last Name :</label>
                         <input type="text" name="lname" id="chklastnm" class="form-control " value="{{accountuser[3]  or '' }}" placeholder="Last name" >
                         <span id = "chlastnm" class="error"></span>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-4">
                         <label>Email Id :</label>
                         <input type="text" name="email" id="chkemail"  class="form-control " value="{{accountuser[15]}}"  readonly>
                          <span id = "chemail" class="error"></span>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-4">
                         <label>Username :</label>
                         <input type="text" name="username" id="chkusernm" class="form-control " value="{{accountuser[16]}}"  readonly>
                         <span id = "chusernm" class="error"></span>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-4">
                         <label>Date Of Birth :</label>
                         <input type="date" name="dob" id="birthDate" class="form-control " placeholder="Date of birth" value="{{accountuser[4] or '' }}" >
                         <span id = "date" class="error"></span>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-4">
                         <label>Mobile Number :</label>
                         <input type="tel" id = "mob" name="mobile" class="form-control "  placeholder="Mobile number" value="{{accountuser[5] or '' }}" >
                         <span id = "mobile" class="error"></span>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 mb-4">
                         <label class="m-2">Gender :</label>
                         <input type="radio" value="Male" id="male" name="gender" >   Male
                         <input type="radio" value="Female" id="female" name="gender" >   Female
                         <span id = "gender" hidden>{{accountuser[6] or '' }}</span>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 mb-4">
                         <label>Address :</label>
                         <input type="text" name="address" id="chkaddress" class="form-control " placeholder="Address" value="{{accountuser[7]  or '' }}" >
                         <span id = "chaddress" class="error"></span>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-4">
                         <label>City :</label>
                         <input type="text" name="city" id = "chkcity" class="form-control " placeholder="City" value="{{accountuser[8]  or '' }}" >
                         <span id = "chcity" class="error"></span>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-4">
                         <label>State :</label>
                          <select id="chkstate" name="state" class="form-control" value="{{accountuser[9] or '' }}">
-                            <option value="" selected>
+                            <option value="{{accountuser[9] or '' }}" selected>
                     {% if accountuser[9] != None %}
                     {{accountuser[9] or '' }}
                     {% else %}
                     State
                     {% endif %}
                     </option>
-            <option value="{{accountuser[9] or '' }}" selected>{{accountuser[9] or '' }}</option>
+
             <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
             <option value="Andhra Pradesh">Andhra Pradesh</option>
             <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -119,22 +119,23 @@
         </select>
                         <span id = "chstate" class="error"></span>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 mb-4">
                         <label>Zipcode :</label>
                         <input type="text" name="zipcode" class="form-control " placeholder="Zipcode" id="zipCode1" value="{{accountuser[10]  or '' }}" >
                         <span id = "zip" class="error"></span>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-4">
                         <label>Profile :</label>
                         <input type="file" name="file" id="file" class="form-control" autocomplete="off" >
                         <span id = "chpro" class="error"></span>
                     </div>
-                     <div class="col-md-6">
+                     <div class="col-md-6 ">
                          <label>Birth certificate :</label>
                          <input type="file" name="pdffile" id="pdf"  class="form-control" autocomplete="off" >
+                         <span>{{accountuser[13]}}</span>
                          <span id = "chpdf" class="error"></span>
                      </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 ">
                         <label>Last Updated Date :</label>
                         <input type="date" class="form-control"  value="{{accountuser[11]}}" readonly>
                     </div>
