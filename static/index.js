@@ -377,10 +377,10 @@ function checkPro()
 {
     var fileInput =  document.getElementById('file');
     var filePath = fileInput.value;
-    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+    var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
     if(filePath == "")
     {
-        document.getElementById("chpro").innerHTML = "**Please choose a profile photo";
+        document.getElementById("chpro").innerHTML = "**Please choose a Image";
         return false;
     }
     if (!allowedExtensions.exec(filePath))
@@ -388,6 +388,10 @@ function checkPro()
         document.getElementById("chpro").innerHTML = "**Invalid format";
         fileInput.value = '';
         return false;
+    }
+     if (fileInput.files[0].size > 1048576)
+    {
+         document.getElementById("chpro").innerHTML = "**Images size should be less than 1 MB";
     }
     else
     {
@@ -402,7 +406,6 @@ function checkPro()
 
 function checkPdf()
 {
-//    var pro = document.getElementById("chkpro").value;
     var fileInput =  document.getElementById('pdf');
     var filePath = fileInput.value;
     var allowedExtensions = /(\.pdf)$/i;
@@ -413,9 +416,13 @@ function checkPdf()
     }
     if (!allowedExtensions.exec(filePath))
     {
-        document.getElementById("chpdf").innerHTML = "Invalid format";
+        document.getElementById("chpdf").innerHTML = "**Invalid format";
         fileInput.value = '';
         return false;
+    }
+    if (fileInput.files[0].size >= 3145728)
+    {
+         document.getElementById("chpdf").innerHTML = "**File size should be less than or Equal to 3 MB";
     }
     else
     {
