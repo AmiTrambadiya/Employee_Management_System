@@ -71,7 +71,14 @@
                     <div class="col-md-6">
                         <label>State :</label>
                          <select id="chkstate" name="state" class="form-control" value="{{accountuser[9] or '' }}">
-            <option value="{{accountuser[9] or '' }}" selected>State</option>
+                            <option value="" selected>
+                    {% if accountuser[9] != None %}
+                    {{accountuser[9] or '' }}
+                    {% else %}
+                    State
+                    {% endif %}
+                    </option>
+            <option value="{{accountuser[9] or '' }}" selected>{{accountuser[9] or '' }}</option>
             <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
             <option value="Andhra Pradesh">Andhra Pradesh</option>
             <option value="Arunachal Pradesh">Arunachal Pradesh</option>
