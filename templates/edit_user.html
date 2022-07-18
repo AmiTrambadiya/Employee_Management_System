@@ -12,11 +12,11 @@
              <input type="hidden" class="form-control" name="id" value="{{account[0]}}">
              <input type="hidden" name="userid"  class="form-control" value="{{account[1]}}">
 
-            <div class="row">
+            <div class="row ro">
             <div class="col-lg-4"></div>
             <div class="col-lg-4">
                 {% if account[12] != None %}
-                    <img class="rounded-circle" width="250px"  src="{{ url_for('static', filename='upload/' + account[12] or '') }}"  >
+                <a href="{{ url_for('static', filename='upload/' + account[12]) }}"><img class="rounded-circle" width="250px"  src="{{ url_for('static', filename='upload/' + account[12] or '') }}"  ></a>
                 {% else %}
                     <img class="rounded-circle" width="250px" src="{{ url_for('static', filename='upload/default1.jpg')}}">
                 {% endif %}
@@ -104,14 +104,14 @@
             <div class="form-outline mb-4">
                 <label class="form-label labels">State :</label>
                 <select id="chkstate" name="state" class="form-control" value="{{account[9] or '' }}">
-                    <option value="" selected>
+                    <option value="{{account[9] or '' }}" selected>
                     {% if account[9] != None %}
                     {{account[9] or '' }}
                     {% else %}
                     State
                     {% endif %}
                     </option>
-            <option value="{{account[9] or '' }}">{{account[9] or '' }}</option>
+
             <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
             <option value="Andhra Pradesh">Andhra Pradesh</option>
             <option value="Arunachal Pradesh">Arunachal Pradesh</option>
