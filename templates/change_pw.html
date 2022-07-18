@@ -3,7 +3,7 @@
 <form action="{{url_for('resetpw',user_id=account[1] or '')}}" onsubmit ="return !! (verifyPassword() & checkconpw())" method="POST" class="">
     <div class="container rounded bg-white mt-5 mb-5">
     <div class="row profileuser ">
-    <div class="p-3 py-5">
+    <div class="p-3 l">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h1 class="text-right">Change Password</h1>
             <button class="btn btn-primary btn-block fa-lg gradient-custom-2 back-btn"><a class="nav-link active" aria-current="page" href="{{url_for('showdata')}}" onclick="return confirm('Are you sure you want to go back?');">Home</a></button>
