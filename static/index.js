@@ -377,7 +377,7 @@ function checkPro()
 {
     var fileInput =  document.getElementById('file');
     var filePath = fileInput.value;
-    var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
     if(filePath == "")
     {
         document.getElementById("chpro").innerHTML = "**Please choose a Image";
@@ -389,10 +389,7 @@ function checkPro()
         fileInput.value = '';
         return false;
     }
-     if (fileInput.files[0].size > 1048576)
-    {
-         document.getElementById("chpro").innerHTML = "**Images size should be less than 1 MB";
-    }
+    
     else
     {
         document.getElementById("chpro").innerHTML = "";
@@ -420,9 +417,9 @@ function checkPdf()
         fileInput.value = '';
         return false;
     }
-    if (fileInput.files[0].size >= 3145728)
+    if (fileInput.files[0].size >= 20971520)
     {
-         document.getElementById("chpdf").innerHTML = "**File size should be less than or Equal to 3 MB";
+         document.getElementById("chpdf").innerHTML = "**File size should be less than or Equal to 20 MB";
     }
     else
     {

@@ -20,7 +20,7 @@
                 {% else %}
                     <img class="rounded-circle" width="250px" src="{{ url_for('static', filename='upload/default1.jpg')}}">
                 {% endif %}
-                <h3>{{account[2]}} {{account[3]}}</h3>
+                <h3>{{account[2] or ''}} {{account[3] or ''}}</h3>
                 <br>
             </div>
             <div class="col-lg-4"></div>
