@@ -16,7 +16,7 @@ app.secret_key = "ami-trambadiya"
 DB_HOST = "localhost"
 DB_NAME = "studentDB"
 DB_USER = "postgres"
-DB_PASS = "test123"
+DB_PASS = "admin123"
 
 conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER,
                         password=DB_PASS, host=DB_HOST)
@@ -126,6 +126,7 @@ def updateuser():
     if session['loggedin']:
         if request.method == "POST":
             user_id = request.form.get("userid")
+            
             fname = request.form.get("fname")
             lname = request.form.get("lname")
             dob = request.form.get("dob")
@@ -174,15 +175,26 @@ def createuser():
 def adduser():
     if session['loggedin']:
         cur = conn.cursor()
+        
+        username = request.form.get('username')
         email = request.form.get('email')
         password = request.form.get('password')
         confirm_pw = request.form.get('confirm_pw')
         cur.execute(f"select * from user_login where email='{email}'")
+        email_exist = cur.fetchone()
+        cur.execute(f"select * from user_login where username='{username}'")
         user_exist = cur.fetchone()
         cur.close()
-        if user_exist:
+        
+
+        
+        if email_exist:
             msg = "Account with this email aready exist, please try another email..!!"
             return render_template("add_user.html", error=msg)
+        if user_exist:
+            msg = "Account with this username aready exist, please try another email..!!"
+            return render_template("add_user.html", error=msg)
+            
         if request.method == "POST":
             if password == confirm_pw:
                 nuser()
