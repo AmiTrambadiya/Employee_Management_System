@@ -16,7 +16,7 @@ app.secret_key = "ami-trambadiya"
 DB_HOST = "localhost"
 DB_NAME = "studentDB"
 DB_USER = "postgres"
-DB_PASS = "admin123"
+DB_PASS = "test123"
 
 conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER,
                         password=DB_PASS, host=DB_HOST)
@@ -192,7 +192,7 @@ def adduser():
             msg = "Account with this email aready exist, please try another email..!!"
             return render_template("add_user.html", error=msg)
         if user_exist:
-            msg = "Account with this username aready exist, please try another email..!!"
+            msg = "Account with this username aready exist, please try another username..!!"
             return render_template("add_user.html", error=msg)
             
         if request.method == "POST":
